@@ -51,7 +51,7 @@ p{margin:0}
 .card.dark .price small{color:var(--on-dark-dim)}
 ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
 section{scroll-margin-top:16px}
-.section{padding:56px 0;display:flex;flex-direction:column;gap:32px}
+.section{padding-top:56px;padding-bottom:56px;display:flex;flex-direction:column;gap:32px}
 .section-head{display:flex;flex-direction:column;gap:12px}
 
 /* header */
@@ -111,9 +111,19 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
 .book .fine a{color:var(--on-dark-muted)}
 
 @media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding-left:20px;padding-right:20px}
   nav a:not(.btn-primary){display:none}
-  .hero .wrap{padding-top:48px;padding-bottom:64px}
-  .card{padding:24px}
+  .hero .wrap{padding-top:40px;padding-bottom:56px;gap:22px}
+  .hero .lead{font-size:1.08rem}
+  .section{padding-top:40px !important;padding-bottom:40px !important;gap:24px}
+  .row{gap:14px}
+  .card{padding:24px;gap:12px}
+  .problem{padding:22px}
+  .flow li{flex:1 1 calc(50% - 6px)}
+  .founder{flex-direction:column}
+  .actions .btn{flex:1 1 100%;justify-content:center}
+  .book .wrap{padding-top:56px;padding-bottom:56px}
 }
 </style>
 </head>
