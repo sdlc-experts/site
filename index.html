@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDLC Experts | AI-native development for engineering teams</title>
+<meta name="description" content="We give your team a coding agent that goes from idea to ready-to-merge PR on your existing codebase. Your developers just approve. Two weeks, fixed scope.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sdlc-experts.com/">
+<meta property="og:title" content="SDLC Experts | From idea to pull request. Your developers just approve.">
+<meta property="og:description" content="AI-native SDLC for engineering teams of 5–40: coding agents, a self-learning decision wiki, and issue intake from Slack or email.">
+<link rel="canonical" href="https://sdlc-experts.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1220; --ground:#F3F5F8; --card:#FFFFFF; --line:#DCE2EC; --soft:#E8ECF4;
+  --muted:#3A4660; --muted-2:#4A5878; --on-dark:#F3F5F8; --on-dark-muted:#C9D2E3; --on-dark-dim:#A9B4C9;
+  --accent:#2F5BEA; --accent-text:#1E46C8; --accent-light:#8FA8FF;
+  --display:'Space Grotesk', sans-serif; --body:'IBM Plex Sans', system-ui, sans-serif; --mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+a{color:var(--accent-text)} a:hover{color:#14318F}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.dark{background:var(--ink);color:var(--on-dark)}
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
+.dark .eyebrow{color:var(--accent-light)}
+h1,h2,h3{font-family:var(--display);margin:0}
+h1{font-weight:700;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1.04;letter-spacing:-.03em;max-width:960px}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.02em;line-height:1.1}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:8px;text-decoration:none;font-weight:600}
+.btn-primary{background:var(--accent);color:#fff} .btn-primary:hover{background:#2449C4;color:#fff}
+.btn-ghost{border:1px solid var(--muted-2);color:var(--on-dark);font-weight:500} .btn-ghost:hover{color:#fff;border-color:var(--on-dark-dim)}
+.row{display:flex;flex-wrap:wrap;gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:14px;flex:1 1 300px}
+.card.dark{background:var(--ink);color:var(--on-dark);border:none}
+.card.accent{border:2px solid var(--accent)}
+.tag{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2)}
+.card.dark .tag{color:var(--accent-light)}
+.card.accent .tag{color:var(--accent-text)}
+.card p,.card li{color:var(--muted)}
+.card.dark p,.card.dark li{color:var(--on-dark-muted)}
+.card h3{font-size:1.5rem}
+.price{font-family:var(--display);font-size:2.2rem;font-weight:700;letter-spacing:-.02em}
+.price small{font-family:var(--body);font-size:15px;font-weight:400;color:var(--muted-2)}
+.card.dark .price small{color:var(--on-dark-dim)}
+ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+section{scroll-margin-top:16px}
+.section{padding:56px 0;display:flex;flex-direction:column;gap:32px}
+.section-head{display:flex;flex-direction:column;gap:12px}
+
+/* header */
+.site-header .wrap{padding-top:20px;padding-bottom:20px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;color:var(--on-dark);text-decoration:none}
+.logo span{color:var(--accent-light)}
+nav{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;color:var(--on-dark-muted);text-decoration:none;font-size:15px}
+nav a:hover{color:#fff}
+nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;margin-left:8px}
+
+/* hero */
+.hero .wrap{padding-top:72px;padding-bottom:96px;display:flex;flex-direction:column;gap:28px}
+.hero .lead{font-size:1.25rem;max-width:720px;color:var(--on-dark-muted)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* problems */
+.problem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:10px;flex:1 1 280px}
+.problem .num{font-family:var(--mono);font-size:14px;color:var(--muted-2)}
+.problem h3{font-family:var(--body);font-size:1.2rem;font-weight:600}
+.problem p{color:var(--muted)}
+.tagline{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--ink)!important}
+
+/* flow */
+.flow{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:12px}
+.flow li{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.flow li.gate{background:var(--ink);color:var(--on-dark);border-color:var(--ink)}
+.flow .who{font-family:var(--mono);font-size:13px;color:var(--muted-2)}
+.flow li.gate .who{color:var(--accent-light)}
+.flow strong{font-weight:600}
+.flow .what{font-size:15px;color:var(--muted)}
+.flow li.gate .what{color:var(--on-dark-muted)}
+
+/* add-ons */
+.addon{flex:1 1 300px;background:var(--soft);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:6px}
+.addon strong{font-size:1.1rem;font-weight:600}
+.addon span:last-child{color:var(--muted)}
+
+/* team */
+.founder{flex:2 1 420px;flex-direction:row;flex-wrap:wrap;gap:24px}
+.photo{flex:0 0 120px;width:120px;height:120px;border-radius:60px;background:var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted-2);text-align:center;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.founder-body{flex:1 1 240px;display:flex;flex-direction:column;gap:10px}
+.staffing{flex:1 1 280px}
+.staffing h3{font-size:1.3rem}
+
+/* faq */
+.faq{flex:1 1 300px;display:flex;flex-direction:column;gap:8px}
+.faq h3{font-family:var(--body);font-size:1.1rem;font-weight:600}
+.faq p{color:var(--muted)}
+
+/* book */
+.book .wrap{padding-top:88px;padding-bottom:88px;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.book h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;max-width:760px}
+.book .lead{font-size:1.15rem;color:var(--on-dark-muted);max-width:620px}
+.book .fine{font-size:15px;color:var(--on-dark-dim)}
+.book .fine a{color:var(--on-dark-muted)}
+
+@media (max-width:640px){
+  nav a:not(.btn-primary){display:none}
+  .hero .wrap{padding-top:48px;padding-bottom:64px}
+  .card{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header dark">
+  <div class="wrap">
+    <a class="logo" href="/">SDLC <span>Experts</span></a>
+    <nav aria-label="Main">
+      <a href="#build">What we build</a>
+      <a href="#packages">Packages</a>
+      <a href="#team">Team</a>
+      <a class="btn-primary" href="#book">Book an audit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero dark">
+  <div class="wrap">
+    <div class="eyebrow">AI-native development for teams of 5–40</div>
+    <h1>From idea to pull request. Your developers just approve.</h1>
+    <p class="lead">We give your team a coding agent with everything it needs to go from request to ready-to-merge PR, on your existing codebase. People stay in charge of the decisions; the agent does the rest. Two weeks, fixed scope, measured before and after.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#book">Start with a 1-day audit</a>
+      <a class="btn btn-ghost" href="#packages">See packages</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap section" style="padding-top:88px;padding-bottom:40px">
+    <h2 style="max-width:760px">Installing the tool takes an hour. The workflow around it is where teams stall.</h2>
+    <div class="row">
+      <div class="problem"><div class="num">01</div><h3>Uneven usage</h3><p>A few engineers fly, most dabble, and everyone has a different personal setup.</p></div>
+      <div class="problem"><div class="num">02</div><h3>Explaining the same thing again</h3><p>Every new chat starts from zero. Conventions and past decisions get re-explained, or ignored.</p></div>
+      <div class="problem"><div class="num">03</div><h3>No proof it works</h3><p>Leadership pays for licenses but can't point to faster delivery or fewer bugs.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="build">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="eyebrow">What we build</div>
+      <h2>Three pieces that turn AI tools into a delivery system.</h2>
+    </div>
+    <div class="row">
+      <div class="card dark">
+        <div class="tag">Core</div>
+        <h3>The superhero coding agent</h3>
+        <p>An agent wired into your repo, tickets, tests and CI, with everything it needs to go from an approved idea to a pull request. Your developer arrives when it's ready, reviews, and approves.</p>
+      </div>
+      <div class="card accent">
+        <div class="tag">Core · org-wide add-on</div>
+        <h3>Self-learning decision wiki</h3>
+        <p>Every decision your team makes is logged once, approved by a person, and followed by every agent from then on.</p>
+        <p class="tagline">Decide once. Never explain it again.</p>
+      </div>
+      <div class="card">
+        <div class="tag">Add-on</div>
+        <h3>Issues intake where you already talk</h3>
+        <p>Anyone can raise a bug or feature request from Slack or email. It becomes a structured spec, and your tech team approves it before any code is written.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap section" style="padding-top:40px">
+    <div class="section-head">
+      <div class="eyebrow">How it flows</div>
+      <h2>From a Slack message to a merged PR, with people deciding where it counts.</h2>
+    </div>
+    <ol class="flow">
+      <li><span class="who">1 · anyone</span><strong>Request</strong><span class="what">A bug or idea arrives by Slack or email.</span></li>
+      <li><span class="who">2 · agent</span><strong>Spec</strong><span class="what">It becomes a spec and plan an agent can execute.</span></li>
+      <li class="gate"><span class="who">3 · tech team</span><strong>Approve</strong><span class="what">An engineer signs off before any code is written.</span></li>
+      <li><span class="who">4 · agent</span><strong>Build</strong><span class="what">The coding agent implements, tests and opens the PR.</span></li>
+      <li><span class="who">5 · CI</span><strong>AI review</strong><span class="what">Automated checks catch agent mistakes first.</span></li>
+      <li class="gate"><span class="who">6 · developer</span><strong>Approve &amp; merge</strong><span class="what">A focused review of what needs judgment.</span></li>
+    </ol>
+    <p style="color:var(--muted);max-width:760px">Every approval feeds the decision wiki, so the next spec starts from everything your team has already decided.</p>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="eyebrow">Packages</div>
+      <h2>Fixed scope, fixed price. Start small.</h2>
+    </div>
+    <div class="row">
+      <div class="card accent">
+        <div class="tag">Start here · 1 day</div>
+        <h3>AI SDLC Audit</h3>
+        <div class="price">₪4,900 <small>+ VAT</small></div>
+        <ul class="list">
+          <li>2-hour session with your tech lead</li>
+          <li>Walkthrough of one repo and your current flow</li>
+          <li>Written report: 10 prioritized fixes</li>
+          <li>A 2-week rollout plan you can run with or without us</li>
+        </ul>
+        <p style="font-size:15px;color:var(--muted-2)">Fully credited toward the Core Sprint if you book within 30 days.</p>
+      </div>
+      <div class="card dark">
+        <div class="tag">2 weeks</div>
+        <h3>Core Sprint</h3>
+        <div class="price">₪32,000 <small>+ VAT</small></div>
+        <ul class="list">
+          <li>Coding agent from approved idea to PR</li>
+          <li>Spec, plan and approval gates</li>
+          <li>AI PR review wired into CI</li>
+          <li>Decision wiki for each repo</li>
+          <li>Two training sessions for a pilot squad</li>
+          <li>Playbook and before/after metrics</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tag">Monthly · 3-month minimum</div>
+        <h3>Retainer</h3>
+        <div class="price">₪9,500 <small>/ month + VAT</small></div>
+        <ul class="list">
+          <li>2 days a month of hands-on work</li>
+          <li>Decision wiki curation and cleanup</li>
+          <li>New skills and agents as needs change</li>
+          <li>Onboarding new engineers to the flow</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="addon"><span class="tag">Add-on</span><strong>Issues intake</strong><span>Slack or email requests become specs your team approves. From ₪12,000.</span></div>
+      <div class="addon"><span class="tag">Add-on</span><strong>Org-wide decision wiki</strong><span>One shared memory across all repos and teams. From ₪8,000.</span></div>
+      <div class="addon"><span class="tag">Consulting</span><strong>₪600 / hour</strong><span>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap section">
+    <div class="section-head">
+      <div class="eyebrow">Meet the team</div>
+      <h2>Founder-led. Senior people only.</h2>
+    </div>
+    <div class="row">
+      <div class="card founder">
+        <div class="photo">[PHOTO]</div>
+        <div class="founder-body">
+          <h3>Jacob [LAST NAME]</h3>
+          <div class="tag">Founder · Principal Engineer</div>
+          <p>Leads every project personally. Has rebuilt a company's SDLC around AI agents on a real production codebase: coding agents, a speccing agent, agent/human decision gates, and AI PR checks in CI/CD. Background in full-stack and frontend architecture (Angular, RxJS) and AWS.</p>
+          <a href="[LINKEDIN_URL]" style="font-size:15px">LinkedIn</a>
+        </div>
+      </div>
+      <div class="card dark staffing">
+        <h3>How we staff projects</h3>
+        <ul class="list">
+          <li>The founder is the lead engineer on every engagement</li>
+          <li>Specialist associates join when a project needs them: cloud, security, data</li>
+          <li>No juniors learning on your codebase</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap section">
+    <h2>Common questions</h2>
+    <div class="row">
+      <div class="faq"><h3>We already use Claude Code. Why do we need this?</h3><p>The audit shows whether that usage turns into faster merges, or just more PRs to review.</p></div>
+      <div class="faq"><h3>Security won't let agents near our code.</h3><p>Permissions and gates are part of the setup: what agents may touch, where a person signs off, what runs only in CI.</p></div>
+      <div class="faq"><h3>Does the decision wiki change things on its own?</h3><p>No. Agents propose entries; a person approves each one before any agent follows it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="book" class="book dark">
+  <div class="wrap">
+    <h2>Taking two teams this month.</h2>
+    <p class="lead">Book a 15-minute call. If the audit isn't a fit, you'll still leave with a clear idea of what to fix first.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="[BOOKING_URL]">Book a 15-minute call</a>
+      <a class="btn btn-ghost" href="https://wa.me/[WHATSAPP_NUMBER]">Message on WhatsApp</a>
+    </div>
+    <p class="fine"><a href="mailto:hello@sdlc-experts.com">hello@sdlc-experts.com</a> · Prices in NIS, before VAT.</p>
+  </div>
+</section>
+</main>
+
+<footer class="dark" style="border-top:1px solid #1E2A40">
+  <div class="wrap" style="padding-top:24px;padding-bottom:24px;font-size:14px;color:var(--on-dark-dim)">© 2026 SDLC Experts</div>
+</footer>
+
+</body>
+</html>
