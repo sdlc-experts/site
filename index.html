@@ -110,6 +110,12 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
 .book .fine{font-size:15px;color:var(--on-dark-dim)}
 .book .fine a{color:var(--on-dark-muted)}
 
+/* currency switch */
+.currency{display:inline-flex;gap:4px;padding:4px;background:var(--soft);border-radius:10px;align-self:flex-start}
+.currency button{font:inherit;font-size:15px;font-weight:500;min-height:44px;padding:0 16px;border:0;border-radius:8px;background:transparent;color:var(--muted);cursor:pointer}
+.currency button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(11,18,32,.12)}
+.currency button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
 @media (max-width:640px){
   body{font-size:16px}
   .wrap{padding-left:20px;padding-right:20px}
@@ -215,12 +221,17 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
     <div class="section-head">
       <div class="eyebrow">Packages</div>
       <h2>Fixed scope, fixed price. Start small.</h2>
+      <div class="currency" role="group" aria-label="Currency">
+        <button type="button" data-cur="ILS" aria-pressed="true">₪ NIS</button>
+        <button type="button" data-cur="USD" aria-pressed="false">$ USD</button>
+        <button type="button" data-cur="EUR" aria-pressed="false">€ EUR</button>
+      </div>
     </div>
     <div class="row">
       <div class="card accent">
         <div class="tag">Start here · 1 day</div>
         <h3>AI SDLC Audit</h3>
-        <div class="price">₪4,900 <small>+ VAT</small></div>
+        <div class="price"><span data-ils="4900">₪4,900</span> <small class="vat">+ VAT</small></div>
         <ul class="list">
           <li>2-hour session with your tech lead</li>
           <li>Walkthrough of one repo and your current flow</li>
@@ -232,7 +243,7 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
       <div class="card dark">
         <div class="tag">2 weeks</div>
         <h3>Core Sprint</h3>
-        <div class="price">₪32,000 <small>+ VAT</small></div>
+        <div class="price"><span data-ils="32000">₪32,000</span> <small class="vat">+ VAT</small></div>
         <ul class="list">
           <li>Coding agent from approved idea to PR</li>
           <li>Spec, plan and approval gates</li>
@@ -245,7 +256,7 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
       <div class="card">
         <div class="tag">Monthly · 3-month minimum</div>
         <h3>Retainer</h3>
-        <div class="price">₪9,500 <small>/ month + VAT</small></div>
+        <div class="price"><span data-ils="9500">₪9,500</span> <small>/ month <span class="vat">+ VAT</span></small></div>
         <ul class="list">
           <li>2 days a month of hands-on work</li>
           <li>Decision wiki curation and cleanup</li>
@@ -255,9 +266,9 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
       </div>
     </div>
     <div class="row">
-      <div class="addon"><span class="tag">Add-on</span><strong>Issues intake</strong><span>Slack or email requests become specs your team approves. From ₪12,000.</span></div>
-      <div class="addon"><span class="tag">Add-on</span><strong>Org-wide decision wiki</strong><span>One shared memory across all repos and teams. From ₪8,000.</span></div>
-      <div class="addon"><span class="tag">Consulting</span><strong>₪600 / hour</strong><span>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</span></div>
+      <div class="addon"><span class="tag">Add-on</span><strong>Issues intake</strong><span>Slack or email requests become specs your team approves. From <span data-ils="12000">₪12,000</span>.</span></div>
+      <div class="addon"><span class="tag">Add-on</span><strong>Org-wide decision wiki</strong><span>One shared memory across all repos and teams. From <span data-ils="8000">₪8,000</span>.</span></div>
+      <div class="addon"><span class="tag">Consulting</span><strong><span data-ils="600">₪600</span> / hour</strong><span>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</span></div>
     </div>
   </div>
 </section>
@@ -309,7 +320,7 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
       <a class="btn btn-primary" href="https://wa.me/972526824700?text=Hi%20Noam%2C%20I%27d%20like%20to%20book%20a%2015-minute%20call%20about%20the%20AI%20SDLC%20audit." target="_blank" rel="noopener">Book a 15-minute call</a>
       <a class="btn btn-ghost" href="https://wa.me/972526824700" target="_blank" rel="noopener">Message on WhatsApp</a>
     </div>
-    <p class="fine"><a href="mailto:hello@sdlc-experts.com">hello@sdlc-experts.com</a> · Prices in NIS, before VAT.</p>
+    <p class="fine"><a href="mailto:hello@sdlc-experts.com">hello@sdlc-experts.com</a> · <span id="price-note">Prices in NIS, before VAT.</span></p>
   </div>
 </section>
 </main>
@@ -318,5 +329,47 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
   <div class="wrap" style="padding-top:24px;padding-bottom:24px;font-size:14px;color:var(--on-dark-dim)">© 2026 SDLC Experts</div>
 </footer>
 
+<script>
+/* Prices are set in NIS. Each market converts with one multiplier
+   (local rate for comparable senior AI consulting / Israeli rate),
+   then rounds UP: to the nearest 100 for amounts of 1,000+, to the nearest 10 below that. */
+(function(){
+  var MARKETS = {
+    ILS: { factor: 1,    symbol: '\u20aa', vat: true,  note: 'Prices in NIS, before VAT.' },
+    USD: { factor: 0.31, symbol: '$',      vat: false, note: 'Prices in USD.' },
+    EUR: { factor: 0.25, symbol: '\u20ac', vat: false, note: 'Prices in EUR.' }
+  };
+  function roundUp(v){ var step = v >= 1000 ? 100 : 10; return Math.ceil(v / step - 1e-9) * step; }
+  function detect(){
+    try { var saved = localStorage.getItem('currency'); if (saved && MARKETS[saved]) return saved; } catch(e){}
+    var tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+    if (tz === 'Asia/Jerusalem' || tz === 'Asia/Tel_Aviv') return 'ILS';
+    if (tz.indexOf('Europe/') === 0) return 'EUR';
+    return 'USD';
+  }
+  function apply(cur){
+    var m = MARKETS[cur];
+    document.querySelectorAll('[data-ils]').forEach(function(el){
+      var base = Number(el.getAttribute('data-ils'));
+      var v = cur === 'ILS' ? base : roundUp(base * m.factor);
+      el.textContent = m.symbol + v.toLocaleString('en-US');
+    });
+    document.querySelectorAll('.vat').forEach(function(el){ el.hidden = !m.vat; });
+    var note = document.getElementById('price-note'); if (note) note.textContent = m.note;
+    document.querySelectorAll('.currency button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-cur') === cur ? 'true' : 'false');
+    });
+  }
+  document.querySelectorAll('.currency button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var cur = b.getAttribute('data-cur');
+      try { localStorage.setItem('currency', cur); } catch(e){}
+      apply(cur);
+    });
+  });
+  apply(detect());
+})();
+</script>
 </body>
 </html>
