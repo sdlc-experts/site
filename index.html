@@ -84,6 +84,9 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
 .flow strong{font-weight:600}
 .flow .what{font-size:15px;color:var(--muted)}
 .flow li.gate .what{color:var(--on-dark-muted)}
+.flow .sync{margin-top:auto;padding-top:10px;font-family:var(--mono);font-size:12px;color:var(--accent-text);display:flex;gap:6px;align-items:baseline}
+.flow .sync::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:currentColor;transform:translateY(-1px)}
+.flow li.gate .sync{color:var(--accent-light)}
 
 /* add-ons */
 .addon{flex:1 1 300px;background:var(--soft);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:6px}
@@ -197,14 +200,15 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
     <div class="section-head">
       <div class="eyebrow">How it flows</div>
       <h2>From a Slack message to a merged PR, with people deciding where it counts.</h2>
+      <p style="color:var(--muted);max-width:760px">Your product tool (Jira, Linear, Monday, GitHub Issues and others) is integrated into every step and updates itself. Nobody moves tickets by hand.</p>
     </div>
     <ol class="flow">
-      <li><span class="who">1 · anyone</span><strong>Request</strong><span class="what">A bug or idea arrives by Slack or email.</span></li>
-      <li><span class="who">2 · agent</span><strong>Spec</strong><span class="what">It becomes a spec and plan an agent can execute.</span></li>
-      <li class="gate"><span class="who">3 · tech team</span><strong>Approve</strong><span class="what">An engineer signs off before any code is written.</span></li>
-      <li><span class="who">4 · agent</span><strong>Build</strong><span class="what">The coding agent implements, tests and opens the PR.</span></li>
-      <li><span class="who">5 · CI</span><strong>AI review</strong><span class="what">Automated checks catch agent mistakes first.</span></li>
-      <li class="gate"><span class="who">6 · developer</span><strong>Approve &amp; merge</strong><span class="what">A focused review of what needs judgment.</span></li>
+      <li><span class="who">1 · anyone</span><strong>Request</strong><span class="what">A bug or idea arrives by Slack or email.</span><span class="sync">Ticket created</span></li>
+      <li><span class="who">2 · agent</span><strong>Spec</strong><span class="what">It becomes a spec and plan an agent can execute.</span><span class="sync">Spec attached to ticket</span></li>
+      <li class="gate"><span class="who">3 · tech team</span><strong>Approve</strong><span class="what">An engineer signs off before any code is written.</span><span class="sync">Status: Approved</span></li>
+      <li><span class="who">4 · agent</span><strong>Build</strong><span class="what">The coding agent implements, tests and opens the PR.</span><span class="sync">Status: In progress · branch linked</span></li>
+      <li><span class="who">5 · CI</span><strong>AI review</strong><span class="what">Automated checks catch agent mistakes first.</span><span class="sync">PR and check results linked</span></li>
+      <li class="gate"><span class="who">6 · developer</span><strong>Approve &amp; merge</strong><span class="what">A focused review of what needs judgment.</span><span class="sync">Status: Done</span></li>
     </ol>
     <p style="color:var(--muted);max-width:760px">Every approval feeds the decision wiki, so the next spec starts from everything your team has already decided.</p>
   </div>
@@ -234,6 +238,7 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
         <div class="price"><span data-ils="32000">₪32,000</span> <small class="vat">+ VAT</small></div>
         <ul class="list">
           <li>Coding agent from approved idea to PR</li>
+          <li>Product tool integrated and updated at every step</li>
           <li>Spec, plan and approval gates</li>
           <li>AI PR review wired into CI</li>
           <li>Decision wiki for each repo</li>
