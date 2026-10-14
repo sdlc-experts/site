@@ -94,11 +94,11 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
 .addon span:last-child{color:var(--muted)}
 
 /* team */
-.founder{flex:2 1 420px;flex-direction:row;flex-wrap:wrap;gap:24px}
+.founder{flex:1 1 420px;flex-direction:row;flex-wrap:wrap;gap:24px}
 .photo{flex:0 0 120px;width:120px;height:120px;border-radius:60px;background:var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted-2);text-align:center;overflow:hidden}
 .photo img{width:100%;height:100%;object-fit:cover}
 .founder-body{flex:1 1 240px;display:flex;flex-direction:column;gap:10px}
-.staffing{flex:1 1 280px}
+.staffing{flex:1 1 100%}
 .staffing h3{font-size:1.3rem}
 
 /* faq */
@@ -282,10 +282,20 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
           <a href="https://www.linkedin.com/in/noamyg" target="_blank" rel="noopener" style="font-size:15px">LinkedIn</a>
         </div>
       </div>
+      <div class="card founder">
+        <div class="photo" aria-hidden="true"><span style="font-family:var(--display);font-weight:700;font-size:2.2rem;color:var(--ink)">DB</span></div>
+        <div class="founder-body">
+          <h3>Dana Ben Reytan Cymerman</h3>
+          <div class="tag">Brand &amp; Communications Lead</div>
+          <p>Leads the brand and helps client teams explain the rollout to everyone outside engineering. Thirteen years in marketing communications and branding: seven as Marcom Manager at Cidev Group, an electronics and embedded-solutions company, and earlier at SOS Children's Villages, Mitrelli, Publicis and OPEN.</p>
+          <a href="https://www.linkedin.com/in/dana-ben-reytan-cymerman-5871b793" target="_blank" rel="noopener" style="font-size:15px">LinkedIn</a>
+        </div>
+      </div>
       <div class="card dark staffing">
         <h3>How we staff projects</h3>
         <ul class="list">
           <li>The founder is the lead engineer on every engagement</li>
+          <li>Brand and rollout communication handled in-house, not outsourced</li>
           <li>Specialist associates join when a project needs them: cloud, security, data</li>
           <li>No juniors learning on your codebase</li>
         </ul>
