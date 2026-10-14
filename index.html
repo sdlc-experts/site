@@ -363,5 +363,38 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
   apply(detect());
 })();
 </script>
+<script>
+/* Book-a-demo pop-up. Cal.com's embed loads only when someone clicks a booking link.
+   A completed booking sends the visitor to /thanks/ (used for ad conversion tracking).
+   If the pop-up can't load, the visitor goes to the regular cal.com booking page. */
+(function(){
+  var CAL_LINK = 'sdlc-experts/30min';
+  var FULL_URL = 'https://cal.com/' + CAL_LINK;
+  var ns = 'demo', ready = false;
+  function loadCal(){
+    if (window.Cal && window.Cal.ns && window.Cal.ns[ns]) return;
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", ns, { origin: "https://app.cal.com" });
+    Cal.ns[ns]("ui", { layout: "month_view", hideEventTypeDetails: false });
+    Cal.ns[ns]("on", { action: "linkReady", callback: function(){ ready = true; } });
+    Cal.ns[ns]("on", { action: "bookingSuccessfulV2", callback: function(){
+      setTimeout(function(){ window.location.href = '/thanks/'; }, 1500);
+    }});
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="' + FULL_URL + '"]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    loadCal();
+    Cal.ns[ns]("modal", { calLink: CAL_LINK, config: { layout: "month_view" } });
+    var started = Date.now();
+    (function check(){
+      if (ready || document.querySelector('cal-modal-box')) return;
+      if (Date.now() - started > 6000) { window.open(FULL_URL, '_blank', 'noopener'); return; }
+      setTimeout(check, 300);
+    })();
+  });
+})();
+</script>
 </body>
 </html>
