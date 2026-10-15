@@ -61,6 +61,7 @@ p{margin:0}
 .card.ink p,.card.ink li{color:#D7D4E3}
 .card.ink .sticker{background:var(--mint)}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
 ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
 
 /* header + hero */
@@ -139,7 +140,7 @@ footer{background:var(--ink);color:#D7D4E3;font-size:.95rem}
 footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;gap:8px 24px}
 
 @media (max-width:980px){
-  .grid3,.team-grid{grid-template-columns:minmax(0,1fr)}
+  .grid3,.grid2,.team-grid{grid-template-columns:minmax(0,1fr)}
   .flow{grid-template-columns:minmax(0,1fr);gap:52px}
   .flow li::after{right:auto;left:50%;top:auto;bottom:-50px;width:40px;height:46px;transform:translateX(-50%) rotate(90deg)}
   .flow li:nth-child(3n)::after{content:""}
@@ -207,7 +208,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
         <p>An agent wired into your repo, tickets, tests and CI, with everything it needs to go from an approved idea to a pull request. Your developer arrives when it's ready, reviews, and approves.</p>
       </div>
       <div class="card lilac">
-        <span class="sticker">Core, with an org-wide add-on</span>
+        <span class="sticker">Core</span>
         <h3>Self-learning decision wiki</h3>
         <p>Every decision your team makes is logged once, approved by a person, and followed by every agent from then on.</p>
         <p class="tagline">Decide once. Never explain it again.</p>
@@ -266,7 +267,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
           <li>Product tool integrated and updated at every step</li>
           <li>Spec, plan and approval gates</li>
           <li>AI PR review wired into CI</li>
-          <li>Decision wiki for each repo</li>
+          <li>One decision wiki shared across all your repos</li>
           <li>Two training sessions for a pilot squad</li>
           <li>Playbook and before/after metrics</li>
         </ul>
@@ -283,9 +284,8 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
         </ul>
       </div>
     </div>
-    <div class="grid3 addons">
+    <div class="grid2 addons">
       <div class="card"><span class="sticker">Add-on</span><strong>Issues intake</strong><p>Slack or email requests become specs your team approves.</p></div>
-      <div class="card"><span class="sticker">Add-on</span><strong>Org-wide decision wiki</strong><p>One shared memory across all repos and teams.</p></div>
       <div class="card"><span class="sticker">Consulting</span><strong>Hourly consulting</strong><p>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</p></div>
     </div>
   </div>
