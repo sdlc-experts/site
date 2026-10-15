@@ -9,185 +9,217 @@
 <meta property="og:url" content="https://sdlc-experts.com/">
 <meta property="og:title" content="SDLC Experts | From idea to pull request. Your developers just approve.">
 <meta property="og:description" content="AI-native SDLC for engineering teams of 5–40: coding agents, a self-learning decision wiki, and issue intake from Slack or email.">
+<meta name="theme-color" content="#C9B8FF">
 <link rel="canonical" href="https://sdlc-experts.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
 :root{
-  --ink:#0B1220; --ground:#F3F5F8; --card:#FFFFFF; --line:#DCE2EC; --soft:#E8ECF4;
-  --muted:#3A4660; --muted-2:#4A5878; --on-dark:#F3F5F8; --on-dark-muted:#C9D2E3; --on-dark-dim:#A9B4C9;
-  --accent:#2F5BEA; --accent-text:#1E46C8; --accent-light:#8FA8FF;
-  --display:'Space Grotesk', sans-serif; --body:'IBM Plex Sans', system-ui, sans-serif; --mono:'IBM Plex Mono', ui-monospace, monospace;
+  --ink:#17151F; --paper:#F2F3F7; --white:#FFFFFF;
+  --lilac:#C9B8FF; --lilac-soft:#E6DEFF; --blue:#3355FF; --mint:#9EF0C8; --tangerine:#FF6B3D;
+  --muted:#4A4658; --on-blue:#FFFFFF; --on-blue-muted:#E1E6FF;
+  --display:'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  --body:'Instrument Sans', system-ui, sans-serif;
+  --line:2px solid var(--ink);
+  --pop:6px 6px 0 var(--ink);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
-a{color:var(--accent-text)} a:hover{color:#14318F}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-.dark{background:var(--ink);color:var(--on-dark)}
-.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text)}
-.dark .eyebrow{color:var(--accent-light)}
-h1,h2,h3{font-family:var(--display);margin:0}
-h1{font-weight:700;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1.04;letter-spacing:-.03em;max-width:960px}
-h2{font-size:clamp(1.8rem,3.4vw,2.6rem);letter-spacing:-.02em;line-height:1.1}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-thickness:2px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+.block-blue :focus-visible{outline-color:var(--white)}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.02em}
+h1{font-weight:800;font-size:clamp(2.9rem,7.4vw,6.4rem);line-height:.95;letter-spacing:-.035em;max-width:13ch}
+h2{font-weight:800;font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.02;max-width:20ch}
+h3{font-weight:600;font-size:1.45rem;line-height:1.15}
 p{margin:0}
-.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:8px;text-decoration:none;font-weight:600}
-.btn-primary{background:var(--accent);color:#fff} .btn-primary:hover{background:#2449C4;color:#fff}
-.btn-ghost{border:1px solid var(--muted-2);color:var(--on-dark);font-weight:500} .btn-ghost:hover{color:#fff;border-color:var(--on-dark-dim)}
-.row{display:flex;flex-wrap:wrap;gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:14px;flex:1 1 300px}
-.card.dark{background:var(--ink);color:var(--on-dark);border:none}
-.card.accent{border:2px solid var(--accent)}
-.tag{font-family:var(--mono);font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2)}
-.card.dark .tag{color:var(--accent-light)}
-.card.accent .tag{color:var(--accent-text)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.block{padding:104px 0}
+.block-lilac{background:var(--lilac)}
+.block-blue{background:var(--blue);color:var(--on-blue)}
+.block-mint{background:var(--mint)}
+.block-tangerine{background:var(--tangerine)}
+.block-paper{background:var(--paper)}
+.head{display:flex;flex-direction:column;gap:18px;margin-bottom:56px}
+.intro{font-size:1.15rem;max-width:58ch;color:var(--muted)}
+.block-blue .intro{color:var(--on-blue-muted)}
+
+/* buttons and stickers */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;border:var(--line);border-radius:999px;font-family:var(--body);font-weight:600;font-size:1.05rem;text-decoration:none;background:var(--ink);color:var(--white);box-shadow:4px 4px 0 var(--ink);transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+.btn-light{background:var(--white);color:var(--ink)}
+.btn-blue{background:var(--blue);color:var(--white)}
+.sticker{display:inline-block;align-self:flex-start;padding:5px 12px;border:var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:.85rem;font-weight:600;line-height:1.3}
+.card{background:var(--white);color:var(--ink);border:var(--line);border-radius:18px;box-shadow:var(--pop);padding:32px;display:flex;flex-direction:column;gap:14px}
 .card p,.card li{color:var(--muted)}
-.card.dark p,.card.dark li{color:var(--on-dark-muted)}
-.card h3{font-size:1.5rem}
-.price{font-family:var(--display);font-size:2.2rem;font-weight:700;letter-spacing:-.02em}
-.price small{font-family:var(--body);font-size:15px;font-weight:400;color:var(--muted-2)}
-.card.dark .price small{color:var(--on-dark-dim)}
+.card.ink{background:var(--ink);color:var(--white)}
+.card.ink p,.card.ink li{color:#D7D4E3}
+.card.ink .sticker{background:var(--mint)}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 ul.list{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
-section{scroll-margin-top:16px}
-.section{padding-top:56px;padding-bottom:56px;display:flex;flex-direction:column;gap:32px}
-.section-head{display:flex;flex-direction:column;gap:12px}
 
-/* header */
-.site-header .wrap{padding-top:20px;padding-bottom:20px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
-.logo{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;color:var(--on-dark);text-decoration:none}
-.logo span{color:var(--accent-light)}
-nav{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;color:var(--on-dark-muted);text-decoration:none;font-size:15px}
-nav a:hover{color:#fff}
-nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;margin-left:8px}
-
-/* hero */
-.hero .wrap{padding-top:72px;padding-bottom:96px;display:flex;flex-direction:column;gap:28px}
-.hero .lead{font-size:1.25rem;max-width:720px;color:var(--on-dark-muted)}
-.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+/* header + hero */
+.site-header{background:var(--lilac)}
+.site-header .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:22px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.6rem;letter-spacing:-.03em;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+.logo-mark{width:30px;height:30px;border:var(--line);border-radius:9px;background:var(--tangerine);box-shadow:3px 3px 0 var(--ink);display:inline-grid;place-items:center}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+nav a.nav-link{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;text-decoration:none;font-weight:500}
+nav a.nav-link:hover{text-decoration:underline}
+nav .btn{min-height:46px;padding:0 20px;margin-left:8px;font-size:1rem}
+.hero{padding:64px 0 120px;position:relative;overflow:hidden}
+.hero .wrap{position:relative}
+.hero .audience{font-weight:600;font-size:1.05rem;margin-bottom:22px}
+.hero .lead{font-size:1.25rem;max-width:56ch;margin-top:32px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;align-items:center}
+.hero-sticker{position:absolute;right:40px;top:10px;width:170px;height:170px;border:var(--line);border-radius:50%;background:var(--tangerine);box-shadow:var(--pop);display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:1.35rem;line-height:1.05;transform:rotate(9deg);padding:18px}
 
 /* problems */
-.problem{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:10px;flex:1 1 280px}
-.problem .num{font-family:var(--mono);font-size:14px;color:var(--muted-2)}
-.problem h3{font-family:var(--body);font-size:1.2rem;font-weight:600}
-.problem p{color:var(--muted)}
-.tagline{font-family:var(--display);font-weight:700;font-size:1.15rem;color:var(--ink)!important}
+.problems .card h3{font-size:1.35rem}
+
+/* what we build */
+.build .card .tagline{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.1;color:var(--ink);margin-top:auto}
+.build .card.mint{background:var(--mint)}
+.build .card.lilac{background:var(--lilac)}
 
 /* flow */
-.flow{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:12px}
-.flow li{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:6px}
-.flow li.gate{background:var(--ink);color:var(--on-dark);border-color:var(--ink)}
-.flow .who{font-family:var(--mono);font-size:13px;color:var(--muted-2)}
-.flow li.gate .who{color:var(--accent-light)}
-.flow strong{font-weight:600}
-.flow .what{font-size:15px;color:var(--muted)}
-.flow li.gate .what{color:var(--on-dark-muted)}
-.flow .sync{margin-top:auto;padding-top:10px;font-family:var(--mono);font-size:12px;color:var(--accent-text);display:flex;gap:6px;align-items:baseline}
-.flow .sync::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:currentColor;transform:translateY(-1px)}
-.flow li.gate .sync{color:var(--accent-light)}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px 64px;counter-reset:step}
+.flow li{position:relative;background:var(--white);border:var(--line);border-radius:18px;box-shadow:var(--pop);padding:26px 26px 22px;display:flex;flex-direction:column;gap:8px}
+.flow li.gate{background:var(--ink);color:var(--white)}
+.flow .num{width:44px;height:44px;border:var(--line);border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem;background:var(--lilac);color:var(--ink)}
+.flow li.gate .num{background:var(--tangerine);border-color:var(--white)}
+.flow .who{font-weight:600;font-size:.95rem;color:var(--muted)}
+.flow li.gate .who{color:#D7D4E3}
+.flow strong{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.1;letter-spacing:-.02em}
+.flow .what{color:var(--muted)}
+.flow li.gate .what{color:#D7D4E3}
+.flow .sync{margin-top:10px;align-self:flex-start;display:inline-flex;gap:8px;align-items:center;padding:4px 12px;border:var(--line);border-radius:999px;background:var(--mint);color:var(--ink);font-size:.85rem;font-weight:600}
+.flow li.gate .sync{border-color:var(--white)}
+.flow li::after{content:"";position:absolute;right:-60px;top:50%;width:56px;height:40px;transform:translateY(-50%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 40'%3E%3Cpath d='M4 26 C 18 6, 34 6, 48 20' fill='none' stroke='%2317151F' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M38 18 L49 21 L46 9' fill='none' stroke='%2317151F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
+.flow li:nth-child(3n)::after,.flow li:last-child::after{content:none}
+.flow-note{margin-top:56px;font-size:1.15rem;max-width:60ch}
 
-/* add-ons */
-.addon{flex:1 1 300px;background:var(--soft);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:6px}
-.addon strong{font-size:1.1rem;font-weight:600}
-.addon span:last-child{color:var(--muted)}
+/* packages */
+.price{font-family:var(--display);font-weight:800;font-size:2.8rem;line-height:1;letter-spacing:-.03em}
+.price small{font-family:var(--body);font-weight:500;font-size:1rem;letter-spacing:0;color:var(--muted)}
+.packages .card.tangerine{background:var(--tangerine)}
+.packages .card.tangerine p,.packages .card.tangerine li{color:var(--ink)}
+.packages .card.blue{background:var(--blue);color:var(--white)}
+.packages .card.blue li{color:var(--on-blue-muted)}
+.packages .card.blue .price small{color:var(--on-blue-muted)}
+.packages .card .btn{margin-top:auto;align-self:flex-start}
+.addons{margin-top:32px}
+.addons .card{background:var(--lilac-soft);box-shadow:4px 4px 0 var(--ink);padding:24px;gap:8px}
+.addons strong{font-family:var(--display);font-weight:800;font-size:1.3rem}
 
 /* team */
-.founder{flex:1 1 420px;flex-direction:row;flex-wrap:wrap;gap:24px}
-.photo{flex:0 0 120px;width:120px;height:120px;border-radius:60px;background:var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted-2);text-align:center;overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover}
-.founder-body{flex:1 1 240px;display:flex;flex-direction:column;gap:10px}
-.staffing{flex:1 1 100%}
-.staffing h3{font-size:1.3rem}
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.person{flex-direction:row;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.person img{width:120px;height:120px;border:var(--line);border-radius:50%;object-fit:cover;flex:0 0 120px;background:var(--lilac-soft)}
+.person-body{flex:1 1 220px;display:flex;flex-direction:column;gap:10px}
+.person .role{font-weight:600;color:var(--ink)}
+.staffing{grid-column:1 / -1}
+.staffing h3{font-size:1.45rem}
 
 /* faq */
-.faq{flex:1 1 300px;display:flex;flex-direction:column;gap:8px}
-.faq h3{font-family:var(--body);font-size:1.1rem;font-weight:600}
+.faq{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:var(--line)}
+.faq h3{font-size:1.3rem}
 .faq p{color:var(--muted)}
 
 /* book */
-.book .wrap{padding-top:88px;padding-bottom:88px;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
-.book h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;max-width:760px}
-.book .lead{font-size:1.15rem;color:var(--on-dark-muted);max-width:620px}
-.book .fine{font-size:15px;color:var(--on-dark-dim)}
-.book .fine a{color:var(--on-dark-muted)}
+.book h2{font-size:clamp(2.6rem,6.4vw,5.4rem);line-height:.95;max-width:14ch}
+.book .lead{font-size:1.25rem;max-width:52ch;margin-top:26px}
+.book .actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.book .fine{margin-top:32px;font-weight:500}
 
+footer{background:var(--ink);color:#D7D4E3;font-size:.95rem}
+footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;gap:8px 24px}
+
+@media (max-width:980px){
+  .grid3,.team-grid{grid-template-columns:minmax(0,1fr)}
+  .flow{grid-template-columns:minmax(0,1fr);gap:52px}
+  .flow li::after{right:auto;left:50%;top:auto;bottom:-50px;width:40px;height:46px;transform:translateX(-50%) rotate(90deg)}
+  .flow li:nth-child(3n)::after{content:""}
+  .flow li:last-child::after{content:none}
+  .hero-sticker{position:static;transform:rotate(-4deg);width:auto;height:auto;border-radius:999px;padding:10px 20px;font-size:1.05rem;display:inline-block;margin-bottom:28px}
+}
 @media (max-width:640px){
-  body{font-size:16px}
-  .wrap{padding-left:20px;padding-right:20px}
-  nav a:not(.btn-primary){display:none}
-  .hero .wrap{padding-top:40px;padding-bottom:56px;gap:22px}
-  .hero .lead{font-size:1.08rem}
-  .section{padding-top:40px !important;padding-bottom:40px !important;gap:24px}
-  .row{gap:14px}
-  .card{padding:24px;gap:12px}
-  .problem{padding:22px}
-  .flow li{flex:1 1 calc(50% - 6px)}
-  .founder{flex-direction:column}
-  .actions .btn{flex:1 1 100%;justify-content:center}
-  .book .wrap{padding-top:56px;padding-bottom:56px}
+  body{font-size:17px}
+  .wrap{padding:0 20px}
+  .block{padding:72px 0}
+  .hero{padding:32px 0 80px}
+  nav a.nav-link{display:none}
+  .card{padding:24px}
+  .actions .btn{flex:1 1 100%}
+  .head{margin-bottom:40px}
 }
 </style>
 </head>
 <body>
 
-<header class="site-header dark">
+<header class="site-header">
   <div class="wrap">
-    <a class="logo" href="/">SDLC <span>Experts</span></a>
+    <a class="logo" href="/"><span class="logo-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5 L6.5 12 L13 4" fill="none" stroke="#17151F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SDLC Experts</a>
     <nav aria-label="Main">
-      <a href="#build">What we build</a>
-      <a href="#packages">Packages</a>
-      <a href="#team">Team</a>
-      <a class="btn-primary" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
+      <a class="nav-link" href="#build">What we build</a>
+      <a class="nav-link" href="#packages">Packages</a>
+      <a class="nav-link" href="#team">Team</a>
+      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="hero dark">
+<section class="block-lilac hero">
   <div class="wrap">
-    <div class="eyebrow">AI-native development for teams of 5–40</div>
+    <div class="hero-sticker" aria-hidden="true">Free 30‑min demo</div>
+    <p class="audience">AI-native development for teams of 5–40</p>
     <h1>From idea to pull request. Your developers just approve.</h1>
     <p class="lead">We give your team a coding agent with everything it needs to go from request to ready-to-merge PR, on your existing codebase. People stay in charge of the decisions; the agent does the rest. Two weeks, fixed scope, measured before and after.</p>
     <div class="actions">
-      <a class="btn btn-primary" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a 30-minute demo</a>
-      <a class="btn btn-ghost" href="#packages">See packages</a>
+      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a 30-minute demo</a>
+      <a class="btn btn-light" href="#packages">See packages</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap section" style="padding-top:88px;padding-bottom:40px">
-    <h2 style="max-width:760px">Installing the tool takes an hour. The workflow around it is where teams stall.</h2>
-    <div class="row">
-      <div class="problem"><div class="num">01</div><h3>Uneven usage</h3><p>A few engineers fly, most barely touch it, and everyone has a different personal setup.</p></div>
-      <div class="problem"><div class="num">02</div><h3>Explaining the same thing again</h3><p>Every new chat starts from zero. Conventions and past decisions get re-explained, or ignored.</p></div>
-      <div class="problem"><div class="num">03</div><h3>No proof it works</h3><p>Leadership pays for licenses but can't point to faster delivery or fewer bugs.</p></div>
+<section class="block block-paper problems">
+  <div class="wrap">
+    <div class="head">
+      <h2>Installing the tool takes an hour. The workflow around it is where teams stall.</h2>
+    </div>
+    <div class="grid3">
+      <div class="card"><h3>Uneven usage</h3><p>A few engineers fly, most barely touch it, and everyone has a different personal setup.</p></div>
+      <div class="card"><h3>Explaining the same thing again</h3><p>Every new chat starts from zero. Conventions and past decisions get re-explained, or ignored.</p></div>
+      <div class="card"><h3>No proof it works</h3><p>Leadership pays for licenses but can't point to faster delivery or fewer bugs.</p></div>
     </div>
   </div>
 </section>
 
-<section id="build">
-  <div class="wrap section">
-    <div class="section-head">
-      <div class="eyebrow">What we build</div>
+<section id="build" class="block block-blue build">
+  <div class="wrap">
+    <div class="head">
       <h2>Three pieces that turn AI tools into a delivery system.</h2>
     </div>
-    <div class="row">
-      <div class="card dark">
-        <div class="tag">Core</div>
+    <div class="grid3">
+      <div class="card mint">
+        <span class="sticker">Core</span>
         <h3>The almighty coding agent</h3>
         <p>An agent wired into your repo, tickets, tests and CI, with everything it needs to go from an approved idea to a pull request. Your developer arrives when it's ready, reviews, and approves.</p>
       </div>
-      <div class="card accent">
-        <div class="tag">Core · org-wide add-on</div>
+      <div class="card lilac">
+        <span class="sticker">Core, with an org-wide add-on</span>
         <h3>Self-learning decision wiki</h3>
         <p>Every decision your team makes is logged once, approved by a person, and followed by every agent from then on.</p>
         <p class="tagline">Decide once. Never explain it again.</p>
       </div>
       <div class="card">
-        <div class="tag">Add-on</div>
+        <span class="sticker">Add-on</span>
         <h3>Issues intake where you already talk</h3>
         <p>Anyone can raise a bug or feature request from Slack or email. It becomes a structured spec, and your tech team approves it before any code is written.</p>
       </div>
@@ -195,34 +227,32 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
   </div>
 </section>
 
-<section>
-  <div class="wrap section" style="padding-top:40px">
-    <div class="section-head">
-      <div class="eyebrow">How it flows</div>
+<section class="block block-mint">
+  <div class="wrap">
+    <div class="head">
       <h2>From a Slack message to a merged PR, with people deciding where it counts.</h2>
-      <p style="color:var(--muted);max-width:760px">Your product tool (Jira, Linear, Monday, GitHub Issues and others) is integrated into every step and updates itself. Nobody moves tickets by hand.</p>
+      <p class="intro" style="color:var(--ink)">Your product tool (Jira, Linear, Monday, GitHub Issues and others) is integrated into every step and updates itself. Nobody moves tickets by hand.</p>
     </div>
     <ol class="flow">
-      <li><span class="who">1 · anyone</span><strong>Request</strong><span class="what">A bug or idea arrives by Slack or email.</span><span class="sync">Ticket created</span></li>
-      <li><span class="who">2 · agent</span><strong>Spec</strong><span class="what">It becomes a spec and plan an agent can execute.</span><span class="sync">Spec attached to ticket</span></li>
-      <li class="gate"><span class="who">3 · tech team</span><strong>Approve</strong><span class="what">An engineer signs off before any code is written.</span><span class="sync">Status: Approved</span></li>
-      <li><span class="who">4 · agent</span><strong>Build</strong><span class="what">The coding agent implements, tests and opens the PR.</span><span class="sync">Status: In progress · branch linked</span></li>
-      <li><span class="who">5 · CI</span><strong>AI review</strong><span class="what">Automated checks catch agent mistakes first.</span><span class="sync">PR and check results linked</span></li>
-      <li class="gate"><span class="who">6 · developer</span><strong>Approve &amp; merge</strong><span class="what">A focused review of what needs judgment.</span><span class="sync">Status: Done</span></li>
+      <li><span class="num" aria-hidden="true">1</span><span class="who">Anyone</span><strong>Request</strong><span class="what">A bug or idea arrives by Slack or email.</span><span class="sync">Ticket created</span></li>
+      <li><span class="num" aria-hidden="true">2</span><span class="who">Agent</span><strong>Spec</strong><span class="what">It becomes a spec and plan an agent can execute.</span><span class="sync">Spec attached to ticket</span></li>
+      <li class="gate"><span class="num" aria-hidden="true">3</span><span class="who">Tech team</span><strong>Approve</strong><span class="what">An engineer signs off before any code is written.</span><span class="sync">Status: Approved</span></li>
+      <li><span class="num" aria-hidden="true">4</span><span class="who">Agent</span><strong>Build</strong><span class="what">The coding agent implements, tests and opens the PR.</span><span class="sync">In progress, branch linked</span></li>
+      <li><span class="num" aria-hidden="true">5</span><span class="who">CI</span><strong>AI review</strong><span class="what">Automated checks catch agent mistakes first.</span><span class="sync">PR and check results linked</span></li>
+      <li class="gate"><span class="num" aria-hidden="true">6</span><span class="who">Developer</span><strong>Approve &amp; merge</strong><span class="what">A focused review of what needs judgment.</span><span class="sync">Status: Done</span></li>
     </ol>
-    <p style="color:var(--muted);max-width:760px">Every approval feeds the decision wiki, so the next spec starts from everything your team has already decided.</p>
+    <p class="flow-note">Every approval feeds the decision wiki, so the next spec starts from everything your team has already decided.</p>
   </div>
 </section>
 
-<section id="packages">
-  <div class="wrap section">
-    <div class="section-head">
-      <div class="eyebrow">Packages</div>
+<section id="packages" class="block block-paper packages">
+  <div class="wrap">
+    <div class="head">
       <h2>Fixed scope, fixed price. Start with a demo.</h2>
     </div>
-    <div class="row">
-      <div class="card accent">
-        <div class="tag">Start here · 30 min</div>
+    <div class="grid3">
+      <div class="card tangerine">
+        <span class="sticker">Start here, 30 min</span>
         <h3>Live demo</h3>
         <div class="price">Free</div>
         <ul class="list">
@@ -231,9 +261,10 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
           <li>Talk through how it would fit your codebase</li>
           <li>Leave with a clear recommendation of where to start</li>
         </ul>
-        <a class="btn btn-primary" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:auto">Book a demo</a>      </div>
-      <div class="card dark">
-        <div class="tag">2 weeks</div>
+        <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
+      </div>
+      <div class="card blue">
+        <span class="sticker">2 weeks</span>
         <h3>Core Sprint</h3>
         <div class="price"><span data-ils="32000">₪32,000</span> <small class="vat">+ VAT</small></div>
         <ul class="list">
@@ -247,7 +278,7 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
         </ul>
       </div>
       <div class="card">
-        <div class="tag">Monthly · 3-month minimum</div>
+        <span class="sticker">Monthly, 3-month minimum</span>
         <h3>Retainer</h3>
         <div class="price"><span data-ils="9500">₪9,500</span> <small>/ month <span class="vat">+ VAT</span></small></div>
         <ul class="list">
@@ -258,40 +289,39 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
         </ul>
       </div>
     </div>
-    <div class="row">
-      <div class="addon"><span class="tag">Add-on</span><strong>Issues intake</strong><span>Slack or email requests become specs your team approves. From <span data-ils="12000">₪12,000</span>.</span></div>
-      <div class="addon"><span class="tag">Add-on</span><strong>Org-wide decision wiki</strong><span>One shared memory across all repos and teams. From <span data-ils="8000">₪8,000</span>.</span></div>
-      <div class="addon"><span class="tag">Consulting</span><strong><span data-ils="600">₪600</span> / hour</strong><span>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</span></div>
+    <div class="grid3 addons">
+      <div class="card"><span class="sticker">Add-on</span><strong>Issues intake</strong><p>Slack or email requests become specs your team approves. From <span data-ils="12000">₪12,000</span>.</p></div>
+      <div class="card"><span class="sticker">Add-on</span><strong>Org-wide decision wiki</strong><p>One shared memory across all repos and teams. From <span data-ils="8000">₪8,000</span>.</p></div>
+      <div class="card"><span class="sticker">Consulting</span><strong><span data-ils="600">₪600</span> / hour</strong><p>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</p></div>
     </div>
   </div>
 </section>
 
-<section id="team">
-  <div class="wrap section">
-    <div class="section-head">
-      <div class="eyebrow">Meet the team</div>
+<section id="team" class="block block-lilac">
+  <div class="wrap">
+    <div class="head">
       <h2>Founder-led. Senior people only.</h2>
     </div>
-    <div class="row">
-      <div class="card founder">
-        <div class="photo"><img src="/img/noam.jpg" alt="Noam Gherson" width="120" height="120" loading="lazy"></div>
-        <div class="founder-body">
+    <div class="team-grid">
+      <div class="card person">
+        <img src="/img/noam.jpg" alt="Noam Gherson" width="120" height="120" loading="lazy">
+        <div class="person-body">
           <h3>Noam Gherson</h3>
-          <div class="tag">Founder &amp; Head Engineer</div>
+          <p class="role">Founder &amp; Head Engineer</p>
           <p>Leads every project personally. Has rebuilt a company's SDLC around AI agents on a real production codebase: coding agents, a speccing agent, agent/human decision gates, and AI PR checks in CI/CD. Background in full-stack and frontend architecture (Angular, RxJS) and AWS.</p>
-          <a href="https://www.linkedin.com/in/noamyg" target="_blank" rel="noopener" style="font-size:15px">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/noamyg" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <div class="card founder">
-        <div class="photo"><img src="/img/dana.jpg" alt="Dana Ben Reytan Cymerman" width="120" height="120" loading="lazy"></div>
-        <div class="founder-body">
+      <div class="card person">
+        <img src="/img/dana.jpg" alt="Dana Ben Reytan Cymerman" width="120" height="120" loading="lazy">
+        <div class="person-body">
           <h3>Dana Ben Reytan Cymerman</h3>
-          <div class="tag">Brand Advisor</div>
+          <p class="role">Brand Advisor</p>
           <p>Thirteen years in marketing communications and branding, including seven as Marcom Manager at Cidev Group, an electronics and embedded-solutions company. Earlier roles at SOS Children's Villages, Mitrelli, Publicis and OPEN.</p>
-          <a href="https://www.linkedin.com/in/dana-ben-reytan-cymerman-5871b793" target="_blank" rel="noopener" style="font-size:15px">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/dana-ben-reytan-cymerman-5871b793" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <div class="card dark staffing">
+      <div class="card ink staffing">
         <h3>How we staff projects</h3>
         <ul class="list">
           <li>The founder is the lead engineer on every engagement</li>
@@ -303,10 +333,12 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
   </div>
 </section>
 
-<section>
-  <div class="wrap section">
-    <h2>Common questions</h2>
-    <div class="row">
+<section class="block block-paper">
+  <div class="wrap">
+    <div class="head">
+      <h2>Common questions</h2>
+    </div>
+    <div class="grid3">
       <div class="faq"><h3>We already use Claude Code. Why do we need this?</h3><p>Having the tool isn't the same as having the workflow. The demo shows the specs, gates and review that turn usage into faster merges instead of more PRs to review.</p></div>
       <div class="faq"><h3>Security won't let agents near our code.</h3><p>Permissions and gates are part of the setup: what agents may touch, where a person signs off, what runs only in CI.</p></div>
       <div class="faq"><h3>Does the decision wiki change things on its own?</h3><p>No. Agents propose entries; a person approves each one before any agent follows it.</p></div>
@@ -314,21 +346,21 @@ nav a.btn-primary{padding:0 20px;color:#fff;font-weight:600;border-radius:8px;ma
   </div>
 </section>
 
-<section id="book" class="book dark">
+<section id="book" class="block block-tangerine book">
   <div class="wrap">
     <h2>Taking two teams this month.</h2>
     <p class="lead">Book a 30-minute demo. You'll see the whole flow and leave with a clear idea of where to start.</p>
     <div class="actions">
-      <a class="btn btn-primary" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
-      <a class="btn btn-ghost" href="https://wa.me/972526824700" target="_blank" rel="noopener">Message on WhatsApp</a>
+      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
+      <a class="btn btn-light" href="https://wa.me/972526824700" target="_blank" rel="noopener">Message on WhatsApp</a>
     </div>
-    <p class="fine"><a href="mailto:hello@sdlc-experts.com">hello@sdlc-experts.com</a> · <span id="price-note">Prices in NIS, before VAT.</span></p>
+    <p class="fine"><a href="mailto:hello@sdlc-experts.com">hello@sdlc-experts.com</a>. <span id="price-note">Prices in NIS, before VAT.</span></p>
   </div>
 </section>
 </main>
 
-<footer class="dark" style="border-top:1px solid #1E2A40">
-  <div class="wrap" style="padding-top:24px;padding-bottom:24px;font-size:14px;color:var(--on-dark-dim)">© 2026 SDLC Experts · <a href="/privacy/" style="color:var(--on-dark-muted)">Privacy policy</a></div>
+<footer>
+  <div class="wrap"><span>© 2026 SDLC Experts</span><a href="/privacy/">Privacy policy</a></div>
 </footer>
 
 <script>
