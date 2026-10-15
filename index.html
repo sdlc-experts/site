@@ -74,10 +74,8 @@ nav a.nav-link:hover{text-decoration:underline}
 nav .btn{min-height:46px;padding:0 20px;margin-left:8px;font-size:1rem}
 .hero{padding:64px 0 120px;position:relative;overflow:hidden}
 .hero .wrap{position:relative}
-.hero .audience{font-weight:600;font-size:1.05rem;margin-bottom:22px}
 .hero .lead{font-size:1.25rem;max-width:56ch;margin-top:32px}
 .hero .actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;align-items:center}
-.hero-sticker{position:absolute;right:40px;top:10px;width:170px;height:170px;border:var(--line);border-radius:50%;background:var(--tangerine);box-shadow:var(--pop);display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:1.35rem;line-height:1.05;transform:rotate(9deg);padding:18px}
 
 /* problems */
 .problems .card h3{font-size:1.35rem}
@@ -133,7 +131,7 @@ nav .btn{min-height:46px;padding:0 20px;margin-left:8px;font-size:1rem}
 
 /* book */
 .book h2{font-size:clamp(2.6rem,6.4vw,5.4rem);line-height:.95;max-width:14ch}
-.book .lead{font-size:1.25rem;max-width:52ch;margin-top:26px}
+.book .lead{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4vw,3rem);line-height:1.05;letter-spacing:-.025em;max-width:24ch;margin:0}
 .book .actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
 .book .fine{margin-top:32px;font-weight:500}
 
@@ -146,7 +144,6 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
   .flow li::after{right:auto;left:50%;top:auto;bottom:-50px;width:40px;height:46px;transform:translateX(-50%) rotate(90deg)}
   .flow li:nth-child(3n)::after{content:""}
   .flow li:last-child::after{content:none}
-  .hero-sticker{position:static;transform:rotate(-4deg);width:auto;height:auto;border-radius:999px;padding:10px 20px;font-size:1.05rem;display:inline-block;margin-bottom:28px}
 }
 @media (max-width:640px){
   body{font-size:17px}
@@ -169,7 +166,6 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
       <a class="nav-link" href="#build">What we build</a>
       <a class="nav-link" href="#packages">Packages</a>
       <a class="nav-link" href="#team">Team</a>
-      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
     </nav>
   </div>
 </header>
@@ -177,12 +173,10 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
 <main>
 <section class="block-lilac hero">
   <div class="wrap">
-    <div class="hero-sticker" aria-hidden="true">Free 30‑min demo</div>
-    <p class="audience">AI-native development for teams of 5–40</p>
     <h1>From idea to pull request. Your developers just approve.</h1>
     <p class="lead">We give your team a coding agent with everything it needs to go from request to ready-to-merge PR, on your existing codebase. People stay in charge of the decisions; the agent does the rest. Two weeks, fixed scope, measured before and after.</p>
     <div class="actions">
-      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a 30-minute demo</a>
+      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a free 30-minute demo</a>
       <a class="btn btn-light" href="#packages">See packages</a>
     </div>
   </div>
@@ -290,9 +284,9 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
       </div>
     </div>
     <div class="grid3 addons">
-      <div class="card"><span class="sticker">Add-on</span><strong>Issues intake</strong><p>Slack or email requests become specs your team approves. From <span data-ils="12000">₪12,000</span>.</p></div>
-      <div class="card"><span class="sticker">Add-on</span><strong>Org-wide decision wiki</strong><p>One shared memory across all repos and teams. From <span data-ils="8000">₪8,000</span>.</p></div>
-      <div class="card"><span class="sticker">Consulting</span><strong><span data-ils="600">₪600</span> / hour</strong><p>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</p></div>
+      <div class="card"><span class="sticker">Add-on</span><strong>Issues intake</strong><p>Slack or email requests become specs your team approves.</p></div>
+      <div class="card"><span class="sticker">Add-on</span><strong>Org-wide decision wiki</strong><p>One shared memory across all repos and teams.</p></div>
+      <div class="card"><span class="sticker">Consulting</span><strong>Hourly consulting</strong><p>Architecture, tooling and AI strategy advice, in prepaid 5-hour blocks.</p></div>
     </div>
   </div>
 </section>
@@ -348,7 +342,6 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
 
 <section id="book" class="block block-tangerine book">
   <div class="wrap">
-    <h2>Taking two teams this month.</h2>
     <p class="lead">Book a 30-minute demo. You'll see the whole flow and leave with a clear idea of where to start.</p>
     <div class="actions">
       <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
