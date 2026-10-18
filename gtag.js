@@ -2,7 +2,7 @@
    Loads only for visitors outside Europe (no consent banner on this site)
    and never when the browser sends a Global Privacy Control signal. */
 (function () {
-  var ID = 'AW-961364697';
+  var ID = 'AW-18519935155';
   var tz = '';
   try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
   var europe = /^(Europe|Arctic)\//.test(tz) ||
