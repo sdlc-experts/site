@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /thanks/
+Disallow: /_preview.html
+
+Sitemap: https://sdlc-experts.com/sitemap.xml
