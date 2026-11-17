@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is an AI-native SDLC? A practical guide | SDLC Experts</title>
+<meta name="description" content="An AI-native SDLC lets coding agents do the routine work from request to pull request, while people approve the decisions. The six stages, the human gates, the decision wiki, and how to start.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sdlc-experts.com/ai-native-sdlc/">
+<meta property="og:title" content="What is an AI-native SDLC? A practical guide">
+<meta property="og:description" content="The six stages from request to merged PR, where people stay in charge, and how to start without rebuilding your process.">
+<meta property="og:image" content="https://sdlc-experts.com/img/logo.png">
+<meta name="theme-color" content="#C9B8FF">
+<link rel="canonical" href="https://sdlc-experts.com/ai-native-sdlc/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"What is an AI-native SDLC? A practical guide",
+ "url":"https://sdlc-experts.com/ai-native-sdlc/",
+ "datePublished":"2026-11-18","dateModified":"2026-11-18",
+ "author":{"@type":"Person","name":"Noam Gherson","url":"https://www.noamyg.com","sameAs":["https://www.linkedin.com/in/noamyg"]},
+ "publisher":{"@id":"https://sdlc-experts.com/#org","@type":"Organization","name":"SDLC Experts","logo":{"@type":"ImageObject","url":"https://sdlc-experts.com/img/logo.png"}},
+ "image":"https://sdlc-experts.com/img/logo.png"}
+</script>
+<script src="/gtag.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/"><img class="logo-mark" src="/logo-mark.svg" width="34" height="34" alt="">SDLC Experts</a>
+    <nav aria-label="Main">
+      <a class="nav-link" href="/#build">What we build</a>
+      <a class="nav-link" href="/core-sprint/">Core Sprint</a>
+      <a class="nav-link" href="/ai-native-sdlc/" aria-current="page">Guide</a>
+      <a class="btn btn-cta" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <p class="kicker">Guide · by Noam Gherson, founder of SDLC Experts</p>
+    <h1>What is an AI-native SDLC?</h1>
+    <p class="lead">An AI-native software development lifecycle is one where coding agents do the routine work at every step, from a request to a ready-to-merge pull request, while people make and approve the decisions that need judgment. This guide covers the six stages, where the human gates go, why a decision wiki matters, and how to start.</p>
+  </div>
+</section>
+
+<section class="section white">
+  <div class="wrap narrow prose">
+    <h2>AI tools are not the same as an AI-native SDLC</h2>
+    <p>Most teams already have AI coding tools. A few engineers get a lot out of them, most use them a little, and everyone has a different personal setup. Each new chat starts from zero, so conventions and past decisions are explained again, or ignored. Leadership pays for licenses and still can't point to faster delivery.</p>
+    <p>An AI-native SDLC changes the process, not just the editor. Every request follows the same path, agents have the context they need at each step, and the points where a person must decide are built in. The result is a team that ships through one shared flow instead of many private habits.</p>
+
+    <h2>The six stages, from request to merged PR</h2>
+    <p>Here is the flow we set up. Dark steps are human gates: nothing moves past them without a person's approval.</p>
+    <ol class="steps">
+      <li><strong>Request.</strong> Anyone raises a bug or idea, for example from Slack or email. A ticket is created in your product tool.</li>
+      <li><strong>Spec.</strong> An agent turns the request into a spec and a plan it can execute, and attaches them to the ticket.</li>
+      <li class="gate"><strong>Approve the spec.</strong> An engineer signs off before any code is written.</li>
+      <li><strong>Build.</strong> The coding agent implements and tests the change on its own branch.</li>
+      <li><strong>Pull request, preview and AI review.</strong> The agent opens a pull request with a live preview environment, and automated checks in CI catch agent mistakes first.</li>
+      <li class="gate"><strong>Approve and merge.</strong> A developer does a focused review of what needs judgment, and merges.</li>
+    </ol>
+    <p>Your product tool, such as Jira, Linear, Monday or GitHub Issues, is updated at every step, so nobody moves tickets by hand.</p>
+
+    <h2>Where people stay in charge</h2>
+    <p>The two gates are the point. Approving the spec before code is written is cheaper than reviewing a pull request built on the wrong idea. The final review is shorter because the preview environment and AI checks have already caught the obvious problems, so the developer's time goes to what needs judgment.</p>
+    <p>Security belongs in the same design: which repositories and tools agents may touch, where a person signs off, and what runs only in CI. Agents work on their own branches with the permissions you set, and nothing merges without a developer's approval.</p>
+
+    <h2>The decision wiki: decide once</h2>
+    <p>Agents forget. A decision wiki is how they stop forgetting. Each decision your team makes, such as a library choice, a naming convention or an architecture rule, is written down once and approved by a person. From then on, every agent reads it before it writes a spec or code.</p>
+    <p>It works like architecture decision records (ADRs), but for agents as well as people. Agents can propose new entries, and a person approves each one before any agent follows it. Every approval in the flow can feed it, so the next spec starts from everything your team has already decided.</p>
+
+    <h2>How to start without rebuilding everything</h2>
+    <ul class="list">
+      <li><strong>Pick one pilot squad</strong> and one repository, not the whole organization.</li>
+      <li><strong>Connect the tools you already use:</strong> your repo, tickets, tests and CI. No new tracker is needed.</li>
+      <li><strong>Put the two gates in first,</strong> spec approval and merge approval, before you let agents do more.</li>
+      <li><strong>Start the decision wiki</strong> with the handful of rules your team repeats most often.</li>
+      <li><strong>Add a preview environment and AI review</strong> to every pull request so reviews get shorter, not longer.</li>
+      <li><strong>Measure</strong> with what you already track, such as time from request to merge, and expand once the pilot squad trusts the flow.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Want to see this on a real codebase?</h2>
+    <p class="fine" style="margin-top:16px">In a free 30-minute demo, you'll watch an agent take a real request to a pull request with a live preview, and leave with a clear idea of where to start.</p>
+    <div class="actions">
+      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
+      <a class="btn btn-light" href="/core-sprint/">See the Core Sprint</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 SDLC Experts</span><a href="/">Home</a><a href="/core-sprint/">Core Sprint</a><a href="/privacy/">Privacy policy</a><a href="/accessibility/">Accessibility</a></div>
+</footer>
+<script src="/site.js"></script>
+</body>
+</html>

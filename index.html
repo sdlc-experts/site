@@ -11,6 +11,54 @@
 <meta property="og:description" content="AI-native SDLC for engineering teams of 5–40: coding agents, a self-learning decision wiki, and issue intake from Slack or email.">
 <meta name="theme-color" content="#C9B8FF">
 <link rel="canonical" href="https://sdlc-experts.com/">
+<meta property="og:image" content="https://sdlc-experts.com/img/logo.png">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "@id": "https://sdlc-experts.com/#org",
+ "name": "SDLC Experts",
+ "url": "https://sdlc-experts.com/",
+ "logo": "https://sdlc-experts.com/img/logo.png",
+ "image": "https://sdlc-experts.com/img/logo.png",
+ "description": "AI SDLC consulting: a coding agent that takes approved ideas to ready-to-merge pull requests on your existing codebase, with human approval gates, AI review in CI and a decision wiki every agent follows.",
+ "email": "hello@sdlc-experts.com",
+ "telephone": "+972526824700",
+ "address": {
+  "@type": "PostalAddress",
+  "addressCountry": "IL"
+ },
+ "areaServed": [
+  {
+   "@type": "Country",
+   "name": "United States"
+  },
+  {
+   "@type": "Place",
+   "name": "Europe"
+  },
+  {
+   "@type": "Country",
+   "name": "Israel"
+  }
+ ],
+ "founder": {
+  "@type": "Person",
+  "name": "Noam Gherson",
+  "jobTitle": "Founder & Head Engineer",
+  "url": "https://www.noamyg.com",
+  "sameAs": [
+   "https://www.linkedin.com/in/noamyg"
+  ]
+ },
+ "knowsAbout": [
+  "AI-native software development lifecycle",
+  "Coding agents",
+  "Architecture decision records",
+  "AI code review in CI"
+ ]
+}
+</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/bricolage-grotesque-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/instrument-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -54,6 +102,7 @@ p{margin:0}
 .btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
 .btn-light{background:var(--white);color:var(--ink)}
 .btn-blue{background:var(--blue);color:var(--white)}
+.btn-cta{background:var(--tangerine);color:var(--ink)}
 .sticker{display:inline-block;align-self:flex-start;padding:5px 12px;border:var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:.85rem;font-weight:600;line-height:1.3}
 .card{background:var(--white);color:var(--ink);border:var(--line);border-radius:18px;box-shadow:var(--pop);padding:32px;display:flex;flex-direction:column;gap:14px}
 .card p,.card li{color:var(--muted)}
@@ -77,6 +126,7 @@ nav .btn{min-height:46px;padding:0 20px;margin-left:8px;font-size:1rem}
 .hero .wrap{position:relative}
 .hero .lead{font-size:1.25rem;max-width:56ch;margin-top:32px}
 .hero .actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;align-items:center}
+.hero .served{margin-top:28px;font-weight:500}
 
 /* problems */
 .problems .card h3{font-size:1.35rem}
@@ -91,14 +141,14 @@ nav .btn{min-height:46px;padding:0 20px;margin-left:8px;font-size:1rem}
 .flow li{position:relative;background:var(--white);border:var(--line);border-radius:18px;box-shadow:var(--pop);padding:26px 26px 22px;display:flex;flex-direction:column;gap:8px}
 .flow li.gate{background:var(--ink);color:var(--white)}
 .flow .num{width:44px;height:44px;border:var(--line);border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem;background:var(--lilac);color:var(--ink)}
-.flow li.gate .num{background:var(--tangerine);border-color:var(--white)}
+.flow li.gate .num{background:var(--mint);border-color:var(--white)}
 .flow .who{font-weight:600;font-size:.95rem;color:var(--muted)}
 .flow li.gate .who{color:#D7D4E3}
 .flow strong{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.1;letter-spacing:-.02em}
 .flow .what{color:var(--muted)}
 .flow li.gate .what{color:#D7D4E3}
-.flow .sync{margin-top:10px;align-self:flex-start;display:inline-flex;gap:8px;align-items:center;padding:4px 12px;border:var(--line);border-radius:999px;background:var(--mint);color:var(--ink);font-size:.85rem;font-weight:600}
-.flow li.gate .sync{border-color:var(--white)}
+.flow .sync{margin-top:10px;align-self:flex-start;display:inline-flex;gap:8px;align-items:center;padding:4px 12px;border:var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:.85rem;font-weight:600}
+.flow li.gate .sync{border-color:var(--white);background:var(--mint)}
 .flow li::after{content:"";position:absolute;right:-60px;top:50%;width:56px;height:40px;transform:translateY(-50%);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 40'%3E%3Cpath d='M4 26 C 18 6, 34 6, 48 20' fill='none' stroke='%2317151F' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M38 18 L49 21 L46 9' fill='none' stroke='%2317151F' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain}
 .flow li:nth-child(3n)::after,.flow li:last-child::after{content:none}
 .flow-note{margin-top:56px;font-size:1.15rem;max-width:60ch}
@@ -108,9 +158,9 @@ nav .btn{min-height:46px;padding:0 20px;margin-left:8px;font-size:1rem}
 .price small{font-family:var(--body);font-weight:500;font-size:1rem;letter-spacing:0;color:var(--muted)}
 .packages .card.tangerine{background:var(--tangerine)}
 .packages .card.tangerine p,.packages .card.tangerine li{color:var(--ink)}
-.packages .card.blue{background:var(--blue);color:var(--white)}
-.packages .card.blue li{color:var(--on-blue-muted)}
-.packages .card.blue .price small{color:var(--on-blue-muted)}
+.packages .card.lilac{background:var(--lilac)}
+.packages .card.lilac p,.packages .card.lilac li,.packages .card.lilac .price small{color:var(--ink)}
+.packages .more{font-weight:600;margin-top:auto}
 .packages .card .btn{margin-top:auto;align-self:flex-start}
 .addons{margin-top:32px}
 .addons .card{background:var(--lilac-soft);box-shadow:4px 4px 0 var(--ink);padding:24px;gap:8px}
@@ -179,6 +229,10 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
   .hero{padding:32px 0 80px}
   nav a.nav-link{display:none}
   .card{padding:24px}
+  .site-header .wrap{flex-wrap:nowrap;gap:10px}
+  .logo{font-size:1.25rem;gap:8px}
+  .logo-mark{width:28px;height:28px}
+  nav .btn{min-height:44px;padding:0 14px;margin-left:0;font-size:.95rem;white-space:nowrap}
   .actions .btn{flex:1 1 100%}
   .head{margin-bottom:40px}
 }
@@ -198,6 +252,8 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
       <a class="nav-link" href="#build">What we build</a>
       <a class="nav-link" href="#packages">Packages</a>
       <a class="nav-link" href="#team">Team</a>
+      <a class="nav-link" href="/ai-native-sdlc/">Guide</a>
+      <a class="btn btn-cta" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
     </nav>
   </div>
 </header>
@@ -208,9 +264,10 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
     <h1>From idea to pull request. Your developers just approve.</h1>
     <p class="lead">We give your team a coding agent with everything it needs to go from request to ready-to-merge PR, on your existing codebase. People stay in charge of the decisions; the agent does the rest. Two weeks, fixed scope.</p>
     <div class="actions">
-      <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a free 30-minute demo</a>
-      <a class="btn btn-light" href="#packages">See packages</a>
+      <a class="btn btn-cta" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a free 30-minute demo</a>
+      <a class="btn btn-light" href="#packages">See pricing</a>
     </div>
+    <p class="served">Remote engagements for engineering teams in the US, Europe and Israel.</p>
   </div>
 </section>
 
@@ -289,7 +346,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
         </ul>
         <a class="btn" href="https://cal.com/sdlc-experts/30min" target="_blank" rel="noopener">Book a demo</a>
       </div>
-      <div class="card blue">
+      <div class="card lilac">
         <span class="sticker">2 weeks</span>
         <h3>Core Sprint</h3>
         <div class="price"><span data-ils="32000">₪32,000</span> <small class="vat">+ VAT</small></div>
@@ -301,6 +358,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
           <li>One decision wiki shared across all your repos</li>
           <li>Two training sessions for a pilot squad</li>
         </ul>
+        <a class="more" href="/core-sprint/">What the Core Sprint includes</a>
       </div>
       <div class="card">
         <span class="sticker">Monthly, 3-month minimum</span>
@@ -368,9 +426,14 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
       <h2>Common questions</h2>
     </div>
     <div class="grid3">
+      <div class="faq"><h3>What is an AI-native SDLC?</h3><p>A software development lifecycle built so coding agents do the routine work at every step, from request to spec to pull request, while people approve the decisions that need judgment. <a href="/ai-native-sdlc/">Read the guide</a>.</p></div>
       <div class="faq"><h3>We already use Claude Code. Why do we need this?</h3><p>Having the tool isn't the same as having the workflow. The demo shows the specs, gates and review that turn usage into faster merges instead of more PRs to review.</p></div>
       <div class="faq"><h3>Security won't let agents near our code.</h3><p>Permissions and gates are part of the setup: what agents may touch, where a person signs off, what runs only in CI.</p></div>
       <div class="faq"><h3>Does the decision wiki change things on its own?</h3><p>No. Agents propose entries; a person approves each one before any agent follows it.</p></div>
+      <div class="faq"><h3>What do we have at the end of the two weeks?</h3><p>A coding agent that takes approved ideas to PRs, your product tool updating itself at every step, approval gates, a preview environment and AI review on every PR, one decision wiki across your repos, and a trained pilot squad. <a href="/core-sprint/">See the Core Sprint</a>.</p></div>
+      <div class="faq"><h3>Which tools does it work with?</h3><p>It is built around your existing repo, tickets, tests and CI. Product tools such as Jira, Linear, Monday and GitHub Issues are integrated at every step.</p></div>
+      <div class="faq"><h3>Where does our code run?</h3><p>In your own repositories and CI. Agents work on their own branches with the permissions you set, and nothing merges without a developer's approval.</p></div>
+      <div class="faq"><h3>Do you work remotely?</h3><p>Yes. Engagements are remote, for teams in the US, Europe and Israel. Prices on this page are shown in your local currency.</p></div>
     </div>
   </div>
 </section>
@@ -388,7 +451,7 @@ footer .wrap{padding-top:28px;padding-bottom:28px;display:flex;flex-wrap:wrap;ga
 </main>
 
 <footer>
-  <div class="wrap"><span>© 2026 SDLC Experts</span><a href="/privacy/">Privacy policy</a><a href="/accessibility/">Accessibility</a></div>
+  <div class="wrap"><span>© 2026 SDLC Experts</span><a href="/ai-native-sdlc/">AI-native SDLC guide</a><a href="/core-sprint/">Core Sprint</a><a href="/privacy/">Privacy policy</a><a href="/accessibility/">Accessibility</a></div>
 </footer>
 
 <script>
