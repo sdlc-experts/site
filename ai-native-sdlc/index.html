@@ -61,14 +61,14 @@
     <h2>The six stages, from request to merged PR</h2>
     <p>Here is the flow we set up. Dark steps are human gates: nothing moves past them without a person's approval.</p>
     <ol class="steps">
-      <li><strong>Request.</strong> Anyone raises a bug or idea, for example from Slack or email. A ticket is created in your product tool.</li>
+      <li><strong>Request.</strong> Anyone raises a bug or idea, for example from your team chat or email. A ticket is created in your product tool.</li>
       <li><strong>Spec.</strong> An agent turns the request into a spec and a plan it can execute, and attaches them to the ticket.</li>
       <li class="gate"><strong>Approve the spec.</strong> An engineer signs off before any code is written.</li>
       <li><strong>Build.</strong> The coding agent implements and tests the change on its own branch.</li>
       <li><strong>Pull request, preview and AI review.</strong> The agent opens a pull request with a live preview environment, and automated checks in CI catch agent mistakes first.</li>
       <li class="gate"><strong>Approve and merge.</strong> A developer does a focused review of what needs judgment, and merges.</li>
     </ol>
-    <p>Your product tool, such as Jira, Linear, Monday or GitHub Issues, is updated at every step, so nobody moves tickets by hand.</p>
+    <p>Your product tool, whichever one you use, is updated at every step, so nobody moves tickets by hand.</p>
 
     <h2>Where people stay in charge</h2>
     <p>The two gates are the point. Approving the spec before code is written is cheaper than reviewing a pull request built on the wrong idea. The final review is shorter because the preview environment and AI checks have already caught the obvious problems, so the developer's time goes to what needs judgment.</p>
