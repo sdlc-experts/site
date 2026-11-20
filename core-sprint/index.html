@@ -84,14 +84,14 @@
 <section class="section mint">
   <div class="wrap narrow prose">
     <h2>The flow we set up</h2>
-    <p style="color:var(--ink)">Dark steps are human gates.</p>
+    <p style="color:var(--ink)">Steps marked “Human gate” need a person's approval.</p>
     <ol class="steps">
       <li><strong>Request.</strong> A bug or idea arrives, for example by chat or email, and a ticket is created.</li>
       <li><strong>Spec.</strong> An agent turns it into a spec and plan it can execute.</li>
-      <li class="gate"><strong>Approve.</strong> An engineer signs off before any code is written.</li>
+      <li class="gate"><span class="gate-tag">✓ Human gate</span><strong>Approve.</strong> An engineer signs off before any code is written.</li>
       <li><strong>Build.</strong> The coding agent implements and tests on its own branch.</li>
       <li><strong>PR, preview and AI review.</strong> A pull request with a live preview environment; automated checks catch agent mistakes first.</li>
-      <li class="gate"><strong>Approve and merge.</strong> A developer reviews what needs judgment, and merges.</li>
+      <li class="gate"><span class="gate-tag">✓ Human gate</span><strong>Approve and merge.</strong> A developer reviews what needs judgment, and merges.</li>
     </ol>
   </div>
 </section>

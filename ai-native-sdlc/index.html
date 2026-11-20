@@ -59,14 +59,14 @@
     <p>An AI-native SDLC changes the process, not just the editor. Every request follows the same path, agents have the context they need at each step, and the points where a person must decide are built in. The result is a team that ships through one shared flow instead of many private habits.</p>
 
     <h2>The six stages, from request to merged PR</h2>
-    <p>Here is the flow we set up. Dark steps are human gates: nothing moves past them without a person's approval.</p>
+    <p>Here is the flow we set up. Steps marked “Human gate” need a person's approval: nothing moves past them without it.</p>
     <ol class="steps">
       <li><strong>Request.</strong> Anyone raises a bug or idea, for example from your team chat or email. A ticket is created in your product tool.</li>
       <li><strong>Spec.</strong> An agent turns the request into a spec and a plan it can execute, and attaches them to the ticket.</li>
-      <li class="gate"><strong>Approve the spec.</strong> An engineer signs off before any code is written.</li>
+      <li class="gate"><span class="gate-tag">✓ Human gate</span><strong>Approve the spec.</strong> An engineer signs off before any code is written.</li>
       <li><strong>Build.</strong> The coding agent implements and tests the change on its own branch.</li>
       <li><strong>Pull request, preview and AI review.</strong> The agent opens a pull request with a live preview environment, and automated checks in CI catch agent mistakes first.</li>
-      <li class="gate"><strong>Approve and merge.</strong> A developer does a focused review of what needs judgment, and merges.</li>
+      <li class="gate"><span class="gate-tag">✓ Human gate</span><strong>Approve and merge.</strong> A developer does a focused review of what needs judgment, and merges.</li>
     </ol>
     <p>Your product tool, whichever one you use, is updated at every step, so nobody moves tickets by hand.</p>
 
